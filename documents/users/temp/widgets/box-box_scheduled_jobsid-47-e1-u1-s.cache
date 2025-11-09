@@ -1,0 +1,45 @@
+s:2609:"
+<!-- Box box_scheduled_jobs start -->
+<div class="box divboxtable boxdraggable" id="boxto_47">
+<table summary="boxtable47" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th colspan="4" title="Tareas programadas"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Tareas programadas</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Mover el widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Quitar widget de su tablero" rel="x:y" id="imgclose47"></span><input type="hidden" id="boxlabelentry47" value="Tareas programadas"></div></th></tr>
+<tr class="oddeven"><td class="tdoverflowmax200">
+&Uacute;ltima tarea programada ejecutada</td>
+<td class="nowraponall">
+
+<a href="/htdocs/cron/card.php?id=1" title="tocomplete" data-params="{&quot;id&quot;:&quot;1&quot;,&quot;objecttype&quot;:&quot;cronjob&quot;}" class="classforajaxtooltip"><span class="fas fa-business-time paddingright" style=" color: #555;"></span>1</a>
+</td>
+<td class="right">
+</td>
+<td class="right" >
+
+<span class="badge badge-dot badge-status4 classfortooltip badge-status" title="Programada" aria-label="Programada"></span>
+</td>
+</tr>
+<tr class="oddeven"><td class="tdoverflowmax200">
+Siguiente tarea programada para ejecutar</td>
+<td class="nowraponall">
+
+<a href="/htdocs/cron/card.php?id=1" title="tocomplete" data-params="{&quot;id&quot;:&quot;1&quot;,&quot;objecttype&quot;:&quot;cronjob&quot;}" class="classforajaxtooltip"><span class="fas fa-business-time paddingright" style=" color: #555;"></span>1</a>
+</td>
+<td class="right">
+
+<span class="valignmiddle" style="padding: 0px; padding-right: 2px;">10/28/2025 12:45:45 AM</span><span class="classfortooltip valignmiddle" style="padding: 0px; padding: 0px; padding-right: 2px;" title="Zona horaria PHP (Servidor)"><span class="fas fa-info-circle  em088 opacityhigh" style=" vertical-align: middle; cursor: help"></span></span>
+</td>
+<td class="right" >
+
+<span class="badge badge-dot badge-status4 classfortooltip badge-status" title="Programada" aria-label="Programada"></span>
+</td>
+</tr>
+<tr class="oddeven"><td class="tdoverflowmax300" colspan="3">
+N&uacute;mero de tareas programadas con error</td>
+<td class="right">
+
+<a class="inline-block paddingleft marginleftonly minwidth25 nounderlineimp" href="/htdocs/cron/list.php"><div class="center badge badge-status4 nounderline">0</div></a>
+</td>
+</tr>
+</table>
+</div>
+<!-- Box box_scheduled_jobs end -->
+
+";

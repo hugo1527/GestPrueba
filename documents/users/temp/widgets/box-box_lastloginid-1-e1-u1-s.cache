@@ -1,0 +1,25 @@
+s:1774:"
+<!-- Box box_lastlogin start -->
+<div class="box divboxtable boxdraggable" id="boxto_1">
+<table summary="boxtable1" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th colspan="2" title="Informaci&oacute;n de Usuario"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Informaci&oacute;n de Usuario</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Mover el widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Quitar widget de su tablero" rel="x:y" id="imgclose1"></span><input type="hidden" id="boxlabelentry1" value="Informaci&oacute;n de Usuario"></div></th></tr>
+<tr class="oddeven"><td class="tdoverflowmax150 maxwidth150onsmartphone">
+Usuario</td>
+<td class="tdoverflowmax150 maxwidth150onsmartphone">
+<a href="/htdocs/user/card.php?id=1" title="tocomplete" data-params="{&quot;id&quot;:&quot;1&quot;,&quot;objecttype&quot;:&quot;user&quot;,&quot;infologin&quot;:0,&quot;option&quot;:&quot;&quot;,&quot;hidethirdpartylogo&quot;:0}" class="classforajaxtooltip valignmiddle"><!-- picto photo user --><span class="nopadding userimg valignmiddle" style="margin-right: 3px;"><img class="photouserphoto userphoto" alt=""  src="/htdocs/public/theme/common/user_anonymous.png"></span><span class="nopadding usertext valignmiddle">SuperAdmin</span></a></td>
+</tr>
+<tr class="oddeven"><td>
+Acceso previo</td>
+<td>
+10/31/2025 02:27 PM - <span class="opacitymedium">Desde IP 127.0.0.1</span></td>
+</tr>
+<tr class="oddeven"><td>
+&Uacute;ltimo cambio de contrase&ntilde;a</td>
+<td>
+10/28/2025 12:45 AM</td>
+</tr>
+</table>
+</div>
+<!-- Box box_lastlogin end -->
+
+";
