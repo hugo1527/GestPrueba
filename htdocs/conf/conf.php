@@ -31,6 +31,7 @@ $dolibarr_nocsrfcheck='0';
 $dolibarr_main_instance_unique_id='f27b0d91e477eeb45d9c866378178444';
 $dolibarr_mailing_limit_sendbyweb='0';
 $dolibarr_mailing_limit_sendbycli='0';
+$dolibarr_cron_allow_cli = 1;
 
 //$dolibarr_lib_FPDF_PATH="";
 //$dolibarr_lib_TCPDF_PATH="";
