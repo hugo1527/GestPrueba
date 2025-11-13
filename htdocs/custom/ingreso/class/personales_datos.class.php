@@ -32,8 +32,7 @@ require_once DOL_DOCUMENT_ROOT.'/custom/ingreso/class/datos.class.php';
 /**
  * Class for Personales_Datos
  */
-class Personales_Datos extends CommonObject
-//class Personales_Datos extends Datos  // CAMBIO AQUÍ: extends Datos en lugar de CommonObject
+class Personales_Datos extends Datos
 {
 	/**
 	 * @var string 		ID of module.
@@ -148,6 +147,7 @@ class Personales_Datos extends CommonObject
 		"notified_past" => array("type" => "integer", "label" => "Notified Past", "enabled" => "1", 'position' => 2012, 'notnull' => 0, "visible" => "0", "default" => "0",),
 	);
 	public $rowid;
+	public $ref;
 	public $fk_datos;
 	public $date_creation;
 	public $tms;
@@ -216,11 +216,9 @@ class Personales_Datos extends CommonObject
 	public function __construct(DoliDB $db)
 	{
 		global $langs;
-
 		
-		// PRIMERO llamar al constructor PADRE
-        //parent::__construct($db);
-        $this->db = $db;
+		// Llamar al constructor del padre (Datos)
+        parent::__construct($db);
 
 		if (!getDolGlobalInt('MAIN_SHOW_TECHNICAL_ID') && isset($this->fields['rowid']) && !empty($this->fields['ref'])) {
 			$this->fields['rowid']['visible'] = 0;
@@ -457,9 +455,21 @@ class Personales_Datos extends CommonObject
 	 */
 	public function fetch($id, $ref = null, $noextrafields = 0, $nolines = 0)
 	{
+		// Primero, cargamos los datos específicos de la tabla hija (personales_datos)
 		$result = $this->fetchCommon($id, $ref, '', $noextrafields);
-		if ($result > 0 && !empty($this->table_element_line) && empty($nolines)) {
-			$this->fetchLines($noextrafields);
+		if ($result > 0) {
+			// Si se encontró, ahora cargamos los datos del padre (datos) en el mismo objeto.
+			// Esto es clave para que el objeto tenga todas las propiedades (apellido, nombre, etc.).
+			if ($this->fk_datos > 0) {
+				$datos_padre = new Datos($this->db);
+				if ($datos_padre->fetch($this->fk_datos) > 0) {
+					// Copiamos las propiedades del padre al objeto actual
+					$this->ref = $datos_padre->ref; // La referencia principal es la del padre
+					$this->apellido = $datos_padre->apellido;
+					$this->nombre = $datos_padre->nombre;
+					// ... copia otras propiedades si es necesario
+				}
+			}
 		}
 		return $result;
 	}
