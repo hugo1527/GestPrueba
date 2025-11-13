@@ -709,7 +709,7 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 
 		$morehtmlcenter = dolGetButtonTitle($langs->trans('SeeAll'), '', 'fa fa-bars imgforviewmode', dol_buildpath('/ingreso/personales_datos_agenda.php', 1).'?id='.$object->id);
 
-		$includeeventlist = 0;
+		$includeeventlist = 1;
 
 		// List of actions on element
 		if ($includeeventlist) {

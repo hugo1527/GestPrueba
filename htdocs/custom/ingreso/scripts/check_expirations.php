@@ -74,10 +74,10 @@ class IngresoScheduledTasks
         // 1. "main" y "other" son necesarios para dol_print_date(..., 'daytext')
         // 2. "ingreso@ingreso" es para los textos de tu módulo (si los usaras en el email/agenda)
         // 3. "agenda" es para los textos del módulo de agenda
-        /*
+        
         if (!$this->loadAdminUser()) {
             return -1; // Error
-        }*/
+        }
 
         dol_syslog("Cron Ingreso: Iniciando checkAllExpirations (Modo Clase PHP)...", LOG_INFO);
 
@@ -248,39 +248,29 @@ class IngresoScheduledTasks
      */
     private function createCalendarEvent($object_id, $element_type, $event_date, $label, $creator_user_id)
     {
-        global $user; // Aseguramos que use el $user global seteado (admin)
+        global $user; // Usamos el usuario admin cargado por loadAdminUser()
         
         $action = new ActionComm($this->db);
         
         $action->datep = dol_stringtotime($event_date . " 12:00:00"); // Al mediodía
-        $action->datef = $action->datep; // Evento de "todo el día" (fecha inicio = fecha fin)
+        $action->datef = $action->datep; // Evento puntual (fecha inicio = fecha fin)
         
         $action->type_code = 'AC_OTH'; // "Otro" (Puedes definir uno propio en Diccionarios)
         $action->label = $label;
         
-        // --- CÓDIGO CORREGIDO ---
-
-        // El propietario (owner) del evento SIEMPRE será el admin que ejecuta el cron ($user).
+        // El propietario (owner) del evento es el usuario que ejecuta el cron (el admin).
         $action->user_owner_id = $user->id; 
 
         // El evento se ASIGNA al usuario que creó el registro original,
         // o al admin si ese usuario no existe.
-        if (!empty($creator_user_id)) {
-            $action->user_assigned_id = $creator_user_id; 
-        } else {
-            // Fallback: asigna al admin ($user)
-            $action->user_assigned_id = $user->id; 
-        }
-        // ...
-        $result = $action->create($user); // El usuario que ejecuta la acción es el admin ($user)
-                
-        // --- FIN DE CORRECCIÓN ---
+        $action->user_assigned_id = !empty($creator_user_id) ? $creator_user_id : $user->id;
 
         // Vincular el evento al objeto (personales_datos o vehiculo_datos)
         $action->elementtype = $element_type;
+        $action->module = 'ingreso'; // ¡Añadir esta línea!
         $action->fk_element = $object_id;
         
-        $result = $action->create($this->admin_user); // El usuario que ejecuta la acción es el admin
+        $result = $action->create($user); // El usuario que ejecuta la acción es el admin ($user)
         if ($result < 0) {
             dol_syslog("Cron Ingreso: Error al crear evento de agenda: " . $action->error, LOG_ERR);
         } else {
