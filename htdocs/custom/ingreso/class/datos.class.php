@@ -205,6 +205,9 @@ class Datos extends CommonObject
 
 		$this->db = $db;
 
+		// Habilitar la pestaña de eventos/agenda para este objeto y sus hijos
+		$this->control_event = 1;
+
 		if (!getDolGlobalInt('MAIN_SHOW_TECHNICAL_ID') && isset($this->fields['rowid']) && !empty($this->fields['ref'])) {
 			$this->fields['rowid']['visible'] = 0;
 		}
@@ -1282,4 +1285,3 @@ class DatosLine extends CommonObjectLine
 		$this->db = $db;
 	}
 }
-

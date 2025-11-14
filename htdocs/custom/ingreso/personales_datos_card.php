@@ -715,7 +715,7 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 		if ($includeeventlist) {
 			include_once DOL_DOCUMENT_ROOT.'/core/class/html.formactions.class.php';
 			$formactions = new FormActions($db);
-			$somethingshown = $formactions->showactions($object, $object->element.'@'.$object->module, (is_object($object->thirdparty) ? $object->thirdparty->id : 0), 1, '', $MAXEVENT, '', $morehtmlcenter);
+			$somethingshown = $formactions->showactions($object, $object->element, (isset($datos_padre->fk_soc) ? $datos_padre->fk_soc : 0), 1, '', $MAXEVENT, '', $morehtmlcenter);
 		}
 
 		print '</div></div>';
